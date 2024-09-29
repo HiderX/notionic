@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 const Logo = (props) => (
-  <img
+  <Image
     width='40'
     height='40'
     viewBox='0 0 100 100'
@@ -13,7 +13,7 @@ const Logo = (props) => (
     src='https://upyun.zer0.top/IMG_1360.jpeg'
 
   >
-  </img>
+  </Image>
 )
 
 export default Logo

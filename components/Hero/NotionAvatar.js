@@ -38,7 +38,7 @@ const NotionAvatar = (props) => (
   //     fillRule='evenodd'
   //   />
   // </svg>
-  <img
+  <Image
     style={{
       justifyContent: 'center',
       alignSelf: 'center',
@@ -49,7 +49,7 @@ const NotionAvatar = (props) => (
     xmlns='http://www.w3.org/2000/svg'
     fill='currentColor'
     src='https://upyun.zer0.top/IMG_1360.jpeg'
-  ></img>
+  ></Image>
 )
 
 export default NotionAvatar
