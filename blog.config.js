@@ -24,10 +24,10 @@ const BLOG = {
     friends: false
   },
   showWeChatPay: false,
-  previewImagesEnabled: false,
+  previewImagesEnabled: true,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
   ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
-  defaultCover: '/cover.jpg',
+  defaultCover: '/cover.jpeg',
   socialLink: {
     twitter: 'https://x.com',
     github: 'https://github.com/hiderx',
