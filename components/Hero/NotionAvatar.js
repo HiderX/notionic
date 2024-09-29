@@ -42,7 +42,8 @@ const NotionAvatar = (props) => (
     style={{
       justifyContent: 'center',
       alignSelf: 'center',
-      transform: 'scale(-1,1)'
+      borderRadius: '.5rem',
+      // transform: 'scale(-1,1)'
     }}
     viewBox='-350 -150 1500 1500'
     xmlns='http://www.w3.org/2000/svg'
