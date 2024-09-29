@@ -4,7 +4,7 @@ const BLOG = {
   email: 'k.hiderx@gmail.com',
   link: 'https://cv01.tech',
   newsletter: '初始之音，响彻未来',
-  description: 'A notion based blog',
+  description: 'Miku dayo',
   lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   timezone: 'Asia/Shanghai', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
@@ -27,7 +27,7 @@ const BLOG = {
   previewImagesEnabled: false,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
   ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
-  defaultCover: '/cover.jpeg',
+  defaultCover: '/cover.jpg',
   socialLink: {
     twitter: 'https://x.com',
     github: 'https://github.com/hiderx',
