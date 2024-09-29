@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Logo = (props) => (
   <Image
-    src="https://upyun.zer0.top/IMG_1360.jpeg"
+    src="/logo.jpeg"
     alt="logo"
     width={40}
     height={40}
