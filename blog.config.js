@@ -24,14 +24,14 @@ const BLOG = {
     friends: false
   },
   showWeChatPay: false,
-  previewImagesEnabled: true,
+  previewImagesEnabled: false,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
   ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
   defaultCover: '/cover.jpg',
   socialLink: {
-    twitter: 'https://twitter.com/izuolan',
-    github: 'https://github.com/izuolan',
-    telegram: 'https://t.me/zuolan'
+    // twitter: '',
+    github: 'https://github.com/hiderx'
+    // telegram: 'https://t.me/zuolan'
   },
   seo: {
     keywords: ['Notionic', 'Zuolan', 'Blog'],
