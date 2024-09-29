@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 const Logo = (props) => (
-  "https://upyun.zer0.top/IMG_1360.jpeg"
+  <img src='https://upyun.zer0.top/IMG_1360.jpeg'></img>
 )
 
 export default Logo
