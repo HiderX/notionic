@@ -42,6 +42,7 @@ const NotionAvatar = (props) => (
   // </svg>
   <Image
     src="https://upyun.zer0.top/IMG_1360.jpeg"
+    alt="Avatar"
     style={{
       justifyContent: 'center',
       alignSelf: 'center',
