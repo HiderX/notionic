@@ -41,17 +41,14 @@ const NotionAvatar = (props) => (
   //   />
   // </svg>
   <Image
+    src="https://upyun.zer0.top/IMG_1360.jpeg"
     style={{
       justifyContent: 'center',
       alignSelf: 'center',
       borderRadius: '.5rem',
       // transform: 'scale(-1,1)'
     }}
-    viewBox='-350 -150 1500 1500'
-    xmlns='http://www.w3.org/2000/svg'
-    fill='currentColor'
-    src='https://upyun.zer0.top/IMG_1360.jpeg'
-  ></Image>
+    />
 )
 
 export default NotionAvatar
