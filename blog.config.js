@@ -31,7 +31,7 @@ const BLOG = {
   socialLink: {
     twitter: 'https://x.com',
     github: 'https://github.com/hiderx',
-    telegram: 'https://t.me'
+    telegram: 'https://t.me/Miku_0831'
   },
   seo: {
     keywords: ['Notionic', 'CV01', 'Blog'],
