@@ -7,6 +7,7 @@ import BLOG from '@/blog.config'
 
 export default function TableOfContents ({ blockMap, frontMatter, pageTitle }) {
   const [expandedNodeIds, setExpandedNodeIds] = useState({})
+  const [nodes, setNodes] = useState([])
 
   let collectionId, page
   if (pageTitle) {
@@ -16,13 +17,12 @@ export default function TableOfContents ({ blockMap, frontMatter, pageTitle }) {
     collectionId = Object.keys(blockMap.collection)[0]
     page = Object.values(blockMap.block).find(block => block.value.parent_id === collectionId).value
   }
-  const nodes = getPageTableOfContents(page, blockMap)
 
-  // 如果没有目录节点，返回空
-  if (!nodes.length) return null
-
-  // 初始化每个一级标题是否展开的状态
   useEffect(() => {
+    const nodes = getPageTableOfContents(page, blockMap)
+    setNodes(nodes)
+
+    // 初始化每个一级标题是否展开的状态
     const initialExpandedState = {}
     nodes.forEach(node => {
       if (node.type === 'header') {
@@ -30,44 +30,25 @@ export default function TableOfContents ({ blockMap, frontMatter, pageTitle }) {
       }
     })
     setExpandedNodeIds(initialExpandedState)
-  }, [nodes])
+  }, [page, blockMap])
 
-  /**
-   * 滚动到目标元素
-   * @param {string} id - The ID of target heading block (could be in UUID format)
-   */
-  function scrollTo (id) {
-    id = id.replaceAll('-', '')
-    const target = document.querySelector(`.notion-block-${id}`)
-    if (!target) return
-    // `65` is the height of expanded nav
-    const top = document.documentElement.scrollTop + target.getBoundingClientRect().top - 65
-    document.documentElement.scrollTo({
-      top,
-      behavior: 'smooth'
-    })
-  }
-
-  // 监听滚动事件，检测页面滚动到哪个一级标题并展开其子标题
+  // 滚动监听的 useEffect 外部，始终执行
   useEffect(() => {
     const handleScroll = () => {
-      const offset = 80 // 偏移量，确保滚动到标题时触发
+      const offset = 80
       const currentScroll = window.scrollY
 
-      // 检查每个一级标题的位置
       nodes.forEach(node => {
         if (node.type === 'header') {
           const headingElement = document.querySelector(`.notion-block-${node.id.replaceAll('-', '')}`)
           if (headingElement) {
             const rect = headingElement.getBoundingClientRect()
             if (rect.top < offset && rect.bottom > offset) {
-              // 当前滚动到了该一级标题，展开它的子标题
               setExpandedNodeIds(prevState => ({
                 ...prevState,
                 [node.id]: true
               }))
             } else {
-              // 没有滚动到该标题，折叠它的子标题
               setExpandedNodeIds(prevState => ({
                 ...prevState,
                 [node.id]: false
@@ -81,6 +62,9 @@ export default function TableOfContents ({ blockMap, frontMatter, pageTitle }) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [nodes])
+
+  // 如果没有目录节点，返回空
+  if (!nodes.length) return null
 
   return (
     <div
@@ -106,7 +90,6 @@ export default function TableOfContents ({ blockMap, frontMatter, pageTitle }) {
           >
             {node.text}
           </a>
-          {/* 如果是一级标题并且已经展开，则渲染其子标题 */}
           {node.type === 'header' && expandedNodeIds[node.id] && (
             <div className='ml-4'>
               {nodes
